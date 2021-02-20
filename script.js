@@ -1,9 +1,19 @@
-const quoteContainer = document.getElementById('quote-container')
-const quoteText = document.getElementById('quote')
-const authorText = document.getElementById('author')
-const twitter = document.getElementById('twitter')
-const newQuoteBtn = document.getElementById('new-quote')
-const loader = document.getElementById('loader')
+
+function getElement(element) {
+  if (element) {
+    const el = document.getElementById(element)
+    return el
+  }
+  throw new Error(`No such a ${element} Please check!`)
+}
+
+const quoteContainer = getElement('quote-container')
+const quoteText = getElement('quote')
+const authorText = getElement('author')
+const twitter = getElement('twitter')
+const newQuoteBtn = getElement('new-quote')
+const loader = getElement('loader')
+
 
 let apiQuotes = []
 
