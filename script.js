@@ -8,13 +8,13 @@ const loader = document.getElementById('loader')
 let apiQuotes = []
 
 // show loading
-function loading() {
+function showLoadingSpinner() {
   loader.hidden = false;
   quoteContainer.hidden = true;
 }
 
 // hide loading
-function complete() {
+function removeLoadingSpinner() {
   quoteContainer.hidden = false;
   loader.hidden = true;
 }
@@ -37,12 +37,12 @@ function newQuote() {
   }
   // set the quote, hide loader
   quoteText.innerText = text
-  complete()
+  removeLoadingSpinner()
 }
 
 // Get Quote from API
 async function getQuotes() {
-  loading()
+  showLoadingSpinner()
   const apiUrl = 'https://type.fit/api/quotes'
   try {
     const response = await fetch(apiUrl)
