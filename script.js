@@ -20,6 +20,7 @@ function removeLoadingSpinner() {
 }
 
 function newQuote() {
+  showLoadingSpinner()
   // Pick a random quote from apiQuotes
   const randomQuote = Math.floor(Math.random() * apiQuotes.length)
   const { text, author } = apiQuotes[randomQuote]
@@ -60,7 +61,7 @@ function tweetQuote() {
 }
 
 // EventListener
-newQuoteBtn.addEventListener('click', getQuotes)
+newQuoteBtn.addEventListener('click', newQuote)
 twitter.addEventListener('click', tweetQuote)
 
 // onLoad
